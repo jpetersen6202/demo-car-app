@@ -1,11 +1,13 @@
-import { Image, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
 import styles from "./styles";
 
-const Header = () => {
+const Header = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Image style={styles.logo} source={require('../../assets/images/logo.png')} />
-            <Image style={styles.menu} source={require('../../assets/images/menu.png')} />
+            <Pressable onPress={() => navigation.toggleDrawer()}>
+                <Image style={styles.menu} source={require('../../assets/images/menu.png')} />
+            </Pressable>
         </View>
     );
 }
