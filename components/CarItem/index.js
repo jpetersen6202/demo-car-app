@@ -1,9 +1,21 @@
-import { Text, View, ImageBackground } from "react-native";
+import { Text, View, ImageBackground, Alert } from "react-native";
 import styles from './styles'
 import StyledButton from "../StyledButton";
 
 const CarItem = (props) => {
     const {name, tagline, taglineCTA, image} = props.car
+
+    function createAlert(title, message) {
+        return Alert.alert(
+            title,
+            message,
+            [
+                {
+                    text: "Okay",
+                }
+            ]
+        )
+    }
 
     return (
         <View style={styles.carContainer}>
@@ -28,7 +40,7 @@ const CarItem = (props) => {
                     type='primary'
                     content='Custom Order'
                     onPress={() => {
-                        console.warn('custom order was pressed')
+                        createAlert('Custom Order Was Pressed', `Demo button on ${name}`)
                     }}
                 />
 
@@ -36,7 +48,7 @@ const CarItem = (props) => {
                     type='secondary'
                     content='Existing Inventory'
                     onPress={() => {
-                        console.warn('existing inventory was pressed')
+                        createAlert('Existing Inventory Was Pressed', `Demo button on ${name}`)
                     }}
                 />
             </View>
