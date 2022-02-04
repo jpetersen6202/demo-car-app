@@ -1,14 +1,28 @@
-import { View, FlatList, Dimensions } from "react-native";
+import { View, FlatList, Dimensions, Text } from "react-native";
 import styles from "./styles";
 import cars from "./cars"
+import jeeps from "./jeeps"
 import CarItem from "../CarItem"
 import uuid from "react-uuid";
 
-const CarsList = () => {
+const CarsList = ({make}) => {    
+
+    let carData
+    switch (make) {
+        case 'Tesla':
+            carData = cars
+            break
+        case 'Jeep':
+            carData = jeeps
+            break
+        default:
+            carData = 'Make not found'
+    }
+
     return (
         <View style={styles.container}>
             <FlatList 
-                data={cars}
+                data={carData}
                 renderItem={({item}) => (<CarItem car={item} key={uuid()}/>)}
                 showsVerticalScrollIndicator={false}
                 snapToAlignment={'start'}

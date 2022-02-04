@@ -3,12 +3,14 @@ import { StatusBar } from 'expo-status-bar';
 import CarsList from "../CarsList";
 import Header from "../Header";
 
-const Screen = ({ navigation }) => {
+const Screen = ({ route, navigation }) => {
+    const make = route.params?.make ?? 'Default value'
+    
     return (
         <View style={styles.container}>
         
-            <Header navigation={navigation}/>
-            <CarsList />
+            <Header navigation={navigation} make={make}/>
+            <CarsList make={make}/>
 
             <StatusBar style="auto" />
         </View>

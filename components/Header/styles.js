@@ -17,6 +17,12 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
 
+    jeepLogo: {
+        width: 120,
+        height: 35,
+        resizeMode: 'contain'
+    },
+
     menu: {
         width: 25,
         height: 25,

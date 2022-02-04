@@ -21,10 +21,12 @@ export default function App() {
         <Drawer.Screen
           name='Tesla'
           component={Screen}
+          initialParams={{make: 'Tesla'}}
         />
         <Drawer.Screen
           name='Jeep'
           component={Screen}
+          initialParams={{make: 'Jeep'}}
         />
       </Drawer.Navigator>
     </NavigationContainer>
