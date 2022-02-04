@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Demo Tesla App",
-    "slug": "demoteslaapp",
+    "name": "Demo Car App",
+    "slug": "democarapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
