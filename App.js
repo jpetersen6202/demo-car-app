@@ -3,10 +3,14 @@ import { StyleSheet, View } from 'react-native';
 import Screen from './components/Screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Cart from './components/Cart';
+import { useState } from 'react';
 
 const Drawer = createDrawerNavigator();
 
 export default function App() {
+  const [inCart, setInCart] = useState([])
+
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -21,12 +25,18 @@ export default function App() {
         <Drawer.Screen
           name='Tesla'
           component={Screen}
-          initialParams={{make: 'Tesla'}}
+          initialParams={{make: 'Tesla', setInCart: setInCart, inCart: inCart}}
         />
         <Drawer.Screen
           name='Jeep'
           component={Screen}
-          initialParams={{make: 'Jeep'}}
+          initialParams={{make: 'Jeep', setInCart: setInCart, inCart: inCart}}
+        />
+        <Drawer.Screen
+          name='Cart'
+          component={Cart}
+          options={{drawerItemStyle: {height: 0}}}
+          initialParams={{inCart: inCart, setInCart: setInCart}}
         />
       </Drawer.Navigator>
     </NavigationContainer>

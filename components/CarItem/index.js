@@ -1,9 +1,11 @@
 import { Text, View, ImageBackground, Alert } from "react-native";
+import { useContext } from "react";
 import styles from './styles'
 import StyledButton from "../StyledButton";
 
 const CarItem = (props) => {
-    const {name, tagline, taglineCTA, image} = props.car
+    const {name, tagline, price, taglineCTA, image} = props.car
+    const setInCart = props.setInCart
 
     function createAlert(title, message) {
         return Alert.alert(
@@ -17,6 +19,12 @@ const CarItem = (props) => {
         )
     }
 
+    function addToCart(model, price) {
+        setInCart(prevCart => {
+            return [...prevCart, {model: model, price: price}]
+        })
+    }
+
     return (
         <View style={styles.carContainer}>
         
@@ -28,7 +36,7 @@ const CarItem = (props) => {
             <View style={styles.titles}>
                 <Text style={styles.title}>{name}</Text>
                 <Text style={styles.subtitle}>
-                    {tagline + ' '}
+                    {`${tagline}${price} `}
                     <Text style={styles.subtitleCTA}>
                         {taglineCTA}
                     </Text>
@@ -46,9 +54,10 @@ const CarItem = (props) => {
 
                 <StyledButton 
                     type='secondary'
-                    content='Existing Inventory'
+                    content='Add Stock Model To Cart'
                     onPress={() => {
-                        createAlert('Existing Inventory Was Pressed', `Demo button on ${name}`)
+                        addToCart(name, price)
+                        createAlert(`Stock ${name} has been added to cart.`)
                     }}
                 />
             </View>

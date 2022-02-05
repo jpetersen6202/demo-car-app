@@ -11,6 +11,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20
     },
 
+    logoContainer: {
+        flexDirection: 'row',
+    },
+
     logo: {
         width: 100,
         height: 20,
@@ -27,6 +31,13 @@ const styles = StyleSheet.create({
         width: 25,
         height: 25,
         resizeMode: 'contain'
+    },
+
+    cart: {
+        width: 25,
+        height: 25,
+        resizeMode: 'contain',
+        paddingHorizontal: 30
     }
 })
 

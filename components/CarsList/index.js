@@ -3,10 +3,8 @@ import styles from "./styles";
 import cars from "./cars"
 import jeeps from "./jeeps"
 import CarItem from "../CarItem"
-import uuid from "react-uuid";
 
-const CarsList = ({make}) => {    
-
+const CarsList = ({make, setInCart, inCart}) => {        
     let carData
     switch (make) {
         case 'Tesla':
@@ -23,7 +21,7 @@ const CarsList = ({make}) => {
         <View style={styles.container}>
             <FlatList 
                 data={carData}
-                renderItem={({item}) => (<CarItem car={item} key={uuid()}/>)}
+                renderItem={({item}) => (<CarItem car={item} key={item.name} setInCart={setInCart}/>)}
                 showsVerticalScrollIndicator={false}
                 snapToAlignment={'start'}
                 decelerationRate={'fast'}

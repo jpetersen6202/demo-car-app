@@ -8,9 +8,14 @@ const Header = ({ navigation, make }) => {
         <View style={styles.container}>
             {isTesla && <Image style={styles.logo} source={require('../../assets/images/logo.png')} />}
             {!isTesla && <Image style={styles.jeepLogo} source={require('../../assets/images/jeepLogo.png')} />}
-            <Pressable onPress={() => navigation.toggleDrawer()}>
-                <Image style={styles.menu} source={require('../../assets/images/menu.png')} />
-            </Pressable>
+            <View style={styles.logoContainer}>
+                <Pressable onPress={() => navigation.navigate('Cart')}>
+                    <Image style={styles.cart} source={require('../../assets/images/shoppingCart.png')} />
+                </Pressable>
+                <Pressable onPress={() => navigation.toggleDrawer()}>
+                    <Image style={styles.menu} source={require('../../assets/images/menu.png')} />
+                </Pressable>
+            </View>
         </View>
     );
 }
