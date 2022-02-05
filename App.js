@@ -4,6 +4,7 @@ import Screen from './components/Screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Cart from './components/Cart';
+import CarItemVideo from './components/CarItemVideo';
 import { useState } from 'react';
 
 const Drawer = createDrawerNavigator();
@@ -31,6 +32,11 @@ export default function App() {
           name='Jeep'
           component={Screen}
           initialParams={{make: 'Jeep', setInCart: setInCart, inCart: inCart}}
+        />
+        <Drawer.Screen
+          name='Video Test'
+          component={CarItemVideo}
+          initialParams={{name: 'Model Y', tagline:'Starting at ', price: '$95,465'}}
         />
         <Drawer.Screen
           name='Cart'
