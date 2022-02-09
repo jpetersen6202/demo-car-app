@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
       top: 0,
       left: 0,
       alignItems: "stretch",
+      resizeMode: "cover",
       bottom: 0,
       right: 0
     }
